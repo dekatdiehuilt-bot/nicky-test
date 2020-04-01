@@ -53,8 +53,29 @@ function getNasaImage(){
                 .then((response) => {
                     return response.json();
                 })
-                .then((data) => {
-                    console.log(data);
+                .then((response) => {
+                    console.log(response);
+                    let nasaFotos = document.getElementsByClassName("nasaImage");
+                    for(let i = 0; i<nasaFotos.length; i++){
+                        if(response.media_type != "video"){
+                            offlineNasa.push(response.hdurl);
+                            offlineNasa.push(response.title);
+                            offlineNasa.push(response.explanation);
+                            localStorage.setItem("offline", JSON.stringify(offlineNasa));
+                            document.getElementsByClassName('nasaImage')[i].src = response.hdurl;
+                            document.getElementById("nasaImageTitle").innerText = response.title;
+                            document.getElementById("nasaImageDesc").innerText = response.explanation;
+
+                            var image = new Image();
+                            image.crossOrigin = 'use-credentials';
+                            image.src = response.hdurl;
+                        }else{
+                            document.getElementsByClassName('nasaImage')[i].src = "./images/no-youtube.jpg";
+                            document.getElementById("nasaImageTitle").innerHTML = "Geen Videos";
+                            document.getElementById("nasaImageDesc").innerText = "De Url was een video en die wordt niet toegelaten";
+
+                        }
+                    }
                 });
             // get('https://api.nasa.gov/planetary/apod?date='+imageDate+'&api_key=IPoZeDTBk4TzKPU6cG6b2VH0UYDnLYdYtEkC2zkY')
             //     .then(function(response) {
