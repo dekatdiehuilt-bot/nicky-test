@@ -49,7 +49,9 @@ function getNasaImage(){
             document.getElementById("nasaImageTitle").innerHTML = "Jammer!";
         }else{
             let imageDate = createDateFormat(date);
-            fetch('https://api.nasa.gov/planetary/apod?date='+imageDate+'&api_key=IPoZeDTBk4TzKPU6cG6b2VH0UYDnLYdYtEkC2zkY')
+            fetch('https://api.nasa.gov/planetary/apod?date='+imageDate+'&api_key=IPoZeDTBk4TzKPU6cG6b2VH0UYDnLYdYtEkC2zkY', {
+                mode:"no-cors"
+            })
                 .then((response) => {
                     return response.json();
                 })
