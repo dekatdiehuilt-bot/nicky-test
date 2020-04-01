@@ -12,7 +12,7 @@ if ('serviceWorker' in navigator) {
 window.onload = function() {
     setDefaultNasaDate();
     getNasaImage();
-    //loadOfflineNasa();
+    loadOfflineNasa();
     loadSettingsUsername();
 };
 let offlineNasa = [];
@@ -49,15 +49,9 @@ function getNasaImage(){
             document.getElementById("nasaImageTitle").innerHTML = "Jammer!";
         }else{
             let imageDate = createDateFormat(date);
-            // get('https://api.nasa.gov/planetary/apod?date='+imageDate+'&api_key=IPoZeDTBk4TzKPU6cG6b2VH0UYDnLYdYtEkC2zkY')
-            //     .then((response) => {
-            //         return response.json();
-            //     })
-            //     .then((response) => {
-            //         console.log(response);
-            //     });
             get('https://api.nasa.gov/planetary/apod?date='+imageDate+'&api_key=IPoZeDTBk4TzKPU6cG6b2VH0UYDnLYdYtEkC2zkY')
                 .then(function(response) {
+                    console.log(response);
                     // There is an issue with the image being pulled from the API, so using a different one instead
                     let nasaFotos = document.getElementsByClassName("nasaImage");
                     for(let i = 0; i<nasaFotos.length; i++){
