@@ -37,14 +37,6 @@ let offlineNasa = [];
 //     });
 // };
 
-fetch('http://example.com/movies.json')
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) => {
-        console.log(data);
-    });
-
 function getNasaImage(){
     offlineNasa.length = 0;
     if(document.getElementById("nasaImageDate") != null){
