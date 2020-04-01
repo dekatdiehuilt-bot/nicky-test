@@ -3,7 +3,8 @@ const cacheName = 'v1';
 const cacheAssets = [
     './index.php',
     './main.css',
-    './main.js'
+    './main.js',
+    "https://test-nicky-dokter.herokuapp.com/"
 ];
 
 // Call Install Event
