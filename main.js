@@ -53,8 +53,8 @@ function getNasaImage(){
                 .then((response) => {
                     return response.json();
                 })
-                .then((response) => {
-                    console.log(response);
+                .then((data) => {
+                    console.log(data);
                     let nasaFotos = document.getElementsByClassName("nasaImage");
                     for(let i = 0; i<nasaFotos.length; i++){
                         if(response.media_type != "video"){
