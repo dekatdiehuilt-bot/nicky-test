@@ -86,6 +86,8 @@ function getNasaImage(){
                     console.log("Error", err);
                 })
         }
+    }else{
+        console.log("geen datum");
     }
 }
 function Darkmode(){
