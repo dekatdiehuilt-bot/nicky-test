@@ -12,7 +12,7 @@ if ('serviceWorker' in navigator) {
 window.onload = function() {
     setDefaultNasaDate();
     getNasaImage();
-    loadOfflineNasa();
+    //loadOfflineNasa();
     loadSettingsUsername();
 };
 let offlineNasa = [];
