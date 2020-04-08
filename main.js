@@ -12,7 +12,7 @@ if ('serviceWorker' in navigator) {
 window.onload = function() {
     setDefaultNasaDate();
     getNasaImage();
-    loadOfflineNasa();
+    //loadOfflineNasa();
     loadSettingsUsername();
 };
 let offlineNasa = [];
@@ -20,6 +20,7 @@ let offlineNasa = [];
 var get = function(url) {
     return new Promise(function(resolve, reject) {
         var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://api.nasa.gov");
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
@@ -32,8 +33,8 @@ var get = function(url) {
                 }
             }
         };
-        xhr.open("GET", url, true);
-        xhr.send();
+            xhr.open("GET", url, true);
+            xhr.send();
     });
 };
 
@@ -51,6 +52,7 @@ function getNasaImage(){
             let imageDate = createDateFormat(date);
             get('https://api.nasa.gov/planetary/apod?date='+imageDate+'&api_key=IPoZeDTBk4TzKPU6cG6b2VH0UYDnLYdYtEkC2zkY')
                 .then(function(response) {
+                    console.log(response);
                     // There is an issue with the image being pulled from the API, so using a different one instead
                     let nasaFotos = document.getElementsByClassName("nasaImage");
                     for(let i = 0; i<nasaFotos.length; i++){
@@ -62,10 +64,6 @@ function getNasaImage(){
                             document.getElementsByClassName('nasaImage')[i].src = response.hdurl;
                             document.getElementById("nasaImageTitle").innerText = response.title;
                             document.getElementById("nasaImageDesc").innerText = response.explanation;
-
-                            var image = new Image();
-                            image.crossOrigin = 'use-credentials';
-                            image.src = response.hdurl;
                         }else{
                             document.getElementsByClassName('nasaImage')[i].src = "./images/no-youtube.jpg";
                             document.getElementById("nasaImageTitle").innerHTML = "Geen Videos";
@@ -79,6 +77,8 @@ function getNasaImage(){
                     console.log("Error", err);
                 })
         }
+    }else{
+        console.log("geen datum");
     }
 }
 function Darkmode(){
