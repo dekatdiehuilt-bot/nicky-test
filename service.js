@@ -4,7 +4,7 @@ const cacheAssets = [
     // './index.php',
     // './main.css',
     // './main.js',
-    'https://test-nicky-dokter.herokuapp.com/main.css',
+    'https://test-nicky-dokter.herokuapp.com/main.css'
     // 'https://test-nicky-dokter.herokuapp.com/index.php?page=settings',
     // 'https://test-nicky-dokter.herokuapp.com/index.php?page=comments'
     // "./images/logo.jpg"
