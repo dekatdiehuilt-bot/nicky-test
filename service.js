@@ -2,6 +2,7 @@ const cacheName = 'v1';
 
 const cacheAssets = [
     'main.css',
+    'index.php',
     'index.php?page=settings',
     'index.php?page=comments'
 ];
