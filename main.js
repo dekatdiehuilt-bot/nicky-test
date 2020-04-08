@@ -1,3 +1,4 @@
+
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
         navigator.serviceWorker.register('./service.js').then(function(registration) {
@@ -20,7 +21,6 @@ let offlineNasa = [];
 var get = function(url) {
     return new Promise(function(resolve, reject) {
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://api.nasa.gov");
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
