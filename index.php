@@ -1,7 +1,6 @@
 <?php
 session_start();
 //include("db.php");
-//header("Access-Control-Allow-Origin: https://api.nasa.gov");
 header("Access-Control-Allow-Origin: *");
 
 if(!isset($_GET["page"])){
@@ -14,28 +13,28 @@ if(!isset($_GET["page"])){
                 <p id='nasaImageDesc' class='cusScrollbar'></p>
                 </div>";
 }else if($_GET["page"] == "comments"){
-    echo "er Kan geen database komen";
 //    $sql = "select * from comments;";
 //    $std = $db->prepare($sql);
 //    $std->execute();
 //    $result = $std->fetchAll();
 //    $rowcount = $std->rowCount();
-//    $mainContainerHTML = "<div id=\"mainContentHeader\"><h1 class='darkmodeText'>Comments</h1></div><div class='darkmodeText cusScrollbar' id=\"commentContainer\"><small>".$rowcount." result(s)!</small>";
+    $mainContainerHTML = "<div id=\"mainContentHeader\">Geen database beschikbaar op deze site!<h1 class='darkmodeText'>Comments</h1></div><div class='darkmodeText cusScrollbar' id=\"commentContainer\"><small>0 result(s)!</small>";
 //    foreach($result as $row){
-//        $mainContainerHTML .= "
-//                        <div class=\"commentField\">
-//                            <div class=\"commenterNaamContainer\">
-//                                <small id=\"cmntNaamTitle\" class='darkmodeText'>Geschreven door:</small>
-//                                <div class=\"commenterNaam\">
-//                                    {$row["commentNaam"]}
-//                                </div>
-//                                <div class='userComment cusScrollbar'>
-//                                    {$row["comment"]}
-//                                </div>
-//                            </div>
-//                        </div>";
+        $mainContainerHTML .= "
+                        <div class=\"commentField\">
+                        
+                            <div class=\"commenterNaamContainer\">
+                                <small id=\"cmntNaamTitle\" class='darkmodeText'>Geschreven door:</small>
+                                <div class=\"commenterNaam\">
+                                    <!--{}-->
+                                </div>
+                                <div class='userComment cusScrollbar'>
+                                    <!--{}-->
+                                </div>
+                            </div>
+                        </div>";
 //    }
-//    $mainContainerHTML .= "</div>";
+    $mainContainerHTML .= "</div>";
 }else if($_GET["page"] == "settings"){
     $mainContainerHTML = "<div id=\"mainContentHeader\"><h1>Settings</h1></div>";
     $mainContainerHTML .= "
