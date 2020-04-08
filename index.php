@@ -1,8 +1,8 @@
 <?php
 session_start();
 //include("db.php");
-header("Access-Control-Allow-Origin: https://api.nasa.gov");
-header("Access-Control-Allow-Origin: https://test-nicky-dokter.herokuapp.com");
+//header("Access-Control-Allow-Origin: https://api.nasa.gov");
+header("Access-Control-Allow-Origin: https://test-nicky-dokter.herokuapp.com/index.php");
 
 if(!isset($_GET["page"])){
     $mainContainerHTML = "<div id=\"mainContentHeader\"><small class='darkmodeText'>Kies een datum</small><br><input type='date' id='nasaImageDate' onchange='getNasaImage();'><h1 class='darkmodeText'>Home</h1></div>
