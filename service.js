@@ -1,13 +1,9 @@
 const cacheName = 'v1';
 
 const cacheAssets = [
-    // './index.php',
-    // './main.css',
-    // './main.js',
-    'main.css'
-    // 'https://test-nicky-dokter.herokuapp.com/index.php?page=settings',
-    // 'https://test-nicky-dokter.herokuapp.com/index.php?page=comments'
-    // "./images/logo.jpg"
+    'main.css',
+    'index.php?page=settings',
+    'index.php?page=comments'
 ];
 
 // Call Install Event
